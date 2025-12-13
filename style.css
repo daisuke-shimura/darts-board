@@ -1,0 +1,158 @@
+.display {
+  width: 100%;
+  display: flex;
+}
+
+.col-1 {
+  flex: 1;
+}
+
+.col-1-half {
+  flex: 1.5;
+}
+
+.col-2 {
+  flex: 2;
+}
+
+.count {
+  width: 80%;
+  height: 33vh;
+  margin: 0px auto;
+  background-color: aquamarine;
+  /* background-color: orange; */
+  font-size: 10vw;
+  line-height: 33vh;
+  text-align: center;
+}
+
+.board {
+  position: relative;
+  width: 100%; 
+  aspect-ratio: 1 / 1;
+  margin: 0px auto;
+  border: 3 px solid black;
+  background-color: #333;
+  border-radius: 50%;
+  
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.number {
+  position: absolute;
+  color: lightgray;
+  height: 100%;
+  font-size: 2vw;
+}
+
+.circle-1 { 
+  position: absolute;
+  width: 85%; 
+  aspect-ratio: 1 / 1;
+  border-radius: 50%; 
+  margin: 20px auto; 
+  border: 3px solid #000;
+  overflow: hidden;
+}
+
+.circle-2 {
+  position: absolute;
+  width: 90%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 3px solid black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.circle-3 {
+  position: absolute;
+  width: 67.5%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 3px solid black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.circle-4 {
+  position: absolute;
+  width: 87.5%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 3px solid black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+
+.segment {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 50%, 42% 0, 58% 0);
+  cursor: pointer;
+}
+.segment.black {
+  background-color: black;
+}
+.segment.black:hover {
+  background-color: #444444;
+}
+
+.segment.white {
+  background-color: white;
+}
+.segment.white:hover {
+  background-color: #EDEDED;
+}
+
+.segment.red {
+  background-color: red;
+}
+.segment.red:hover {
+  background-color: #FF6666;
+}
+
+.segment.blue {
+  background-color: blue;
+}
+.segment.blue:hover {
+  background-color: #6666FF;
+}
+
+
+.bull {
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 3px solid black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.bull.s-bull {
+  width: 20%;
+  background: red;
+}
+.bull.s-bull:hover {
+  background: #FF6666;
+}
+
+.bull.d-bull {
+  width: 7.5%;
+  background: black;
+}
+.bull.d-bull:hover {
+  background: #444444;
+}
