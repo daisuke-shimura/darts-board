@@ -26,15 +26,35 @@
   text-align: center;
 }
 
+.history {
+  white-space: pre-line;
+  /* width: 80%;
+  height: 66vh;
+  margin: 0px auto;
+  background-color: lightgray;
+  overflow-y: auto; */
+}
+.round-number {
+  color: #666;
+}
+
+.round-score {
+  font-weight: bold;
+}
+
+.round.over-100 .round-score {
+  color: red;
+}
+
+
 .board {
   position: relative;
   width: 100%; 
   aspect-ratio: 1 / 1;
   margin: 0px auto;
-  border: 3 px solid black;
+  border: 3px solid black;
   background-color: #333;
   border-radius: 50%;
-  
   display: flex;
   justify-content: center; 
   align-items: center;
@@ -44,7 +64,8 @@
   position: absolute;
   color: lightgray;
   height: 100%;
-  font-size: 2vw;
+  font-size: 2vw;;
+  cursor: pointer;
 }
 
 .circle-1 { 
