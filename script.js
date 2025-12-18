@@ -14,6 +14,11 @@ document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
       return;
     }
 
+    if (round >= 8) {
+      alert("ゲーム終了");
+      return;
+    }
+
     score += value;
     throws.push(value);   // ← 履歴に追加
 
@@ -39,6 +44,11 @@ document.getElementById("cancel").addEventListener("click", () => {
 
 // チェンジボタンの処理
 document.getElementById("change").addEventListener("click", () => {
+  if (round >= 8) {
+    alert("ゲーム終了");
+    return;
+  }
+  
   history[round] = throws;
   round += 1;
   throws = []; 
@@ -51,5 +61,5 @@ document.getElementById("change").addEventListener("click", () => {
   //     .map((throws) => throws.reduce((a, b) => a + b, 0))
   //     .join("\n");
   document.getElementById(`round${round}`).textContent = history[round - 1].reduce((a, b) => a + b, 0);
-  document.getElementById("round-number").textContent = round + 1;
+  document.getElementById("round-number").textContent = round;
 });
