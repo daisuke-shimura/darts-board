@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Darts Board</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="display">
+      <div class="col-1">
+        <div class="round-number"><span id="round-number">1</span>/8</div>
+        <div class="history">
+          <div>R1：<span id="round1"></span></div>
+          <div>R2：<span id="round2"></span></div>
+          <div>R3：<span id="round3"></span></div>
+          <div>R4：<span id="round4"></span></div>
+          <div>R5：<span id="round5"></span></div>
+          <div>R6：<span id="round6"></span></div>
+          <div>R7：<span id="round7"></span></div>
+          <div>R8：<span id="round8"></span></div>
+        </div>
+      </div>
+
+      <div class="col-1-half">
+        <div class="board">
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(0deg);"><div style="transform: rotate(0deg);">20</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(18deg);"><div style="transform: rotate(-18deg);">1</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(34deg);"><div style="transform: rotate(-34deg);">18</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(54deg);"><div style="transform: rotate(-54deg);">4</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(72deg);"><div style="transform: rotate(-72deg);">13</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(90deg);"><div style="transform: rotate(-90deg);">6</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(108deg);"><div style="transform: rotate(-108deg);">10</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(126deg);"><div style="transform: rotate(-126deg);">15</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(144deg);"><div style="transform: rotate(-144deg);">2</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(162deg);"><div style="transform: rotate(-162deg);">17</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(180deg);"><div style="transform: rotate(-180deg);">3</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(198deg);"><div style="transform: rotate(-198deg);">19</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(216deg);"><div style="transform: rotate(-216deg);">7</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(234deg);"><div style="transform: rotate(-234deg);">16</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(252deg);"><div style="transform: rotate(-252deg);">8</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(270deg);"><div style="transform: rotate(-270deg);">11</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(288deg);"><div style="transform: rotate(-288deg);">14</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(306deg);"><div style="transform: rotate(-306deg);">9</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(324deg);"><div style="transform: rotate(-324deg);">12</div></div>
+          <div class="number" data-value="0" data-name="OUT" role="button" style="transform: rotate(342deg);"><div style="transform: rotate(-342deg);">5</div></div>
+
+
+          <div class="circle-1">
+            <div class="segment red " data-value="40" data-name="DOUBLE 20" role="button" style="transform: rotate(0deg);"></div>
+            <div class="segment blue" data-value="2"  data-name="DOUBLE 1 " role="button" style="transform: rotate(18deg);"></div>
+            <div class="segment red " data-value="36" data-name="DOUBLE 18" role="button" style="transform: rotate(36deg);"></div>
+            <div class="segment blue" data-value="8"  data-name="DOUBLE 4" role="button" style="transform: rotate(54deg);"></div>
+            <div class="segment red " data-value="26" data-name="DOUBLE 13" role="button" style="transform: rotate(72deg);"></div>
+            <div class="segment blue" data-value="12" data-name="DOUBLE 6 " role="button" style="transform: rotate(90deg);"></div>
+            <div class="segment red " data-value="20" data-name="DOUBLE 10" role="button" style="transform: rotate(108deg);"></div>
+            <div class="segment blue" data-value="30" data-name="DOUBLE 15" role="button" style="transform: rotate(126deg);"></div>
+            <div class="segment red " data-value="4"  data-name="DOUBLE 2 " role="button" style="transform: rotate(144deg);"></div>
+            <div class="segment blue" data-value="34" data-name="DOUBLE 17" role="button" style="transform: rotate(162deg);"></div>
+            <div class="segment red " data-value="6"  data-name="DOUBLE 3 " role="button" style="transform: rotate(180deg);"></div>
+            <div class="segment blue" data-value="38" data-name="DOUBLE 19" role="button" style="transform: rotate(198deg);"></div>
+            <div class="segment red " data-value="14" data-name="DOUBLE 7 " role="button" style="transform: rotate(216deg);"></div>
+            <div class="segment blue" data-value="32" data-name="DOUBLE 16" role="button" style="transform: rotate(234deg);"></div>
+            <div class="segment red " data-value="16" data-name="DOUBLE 8 " role="button" style="transform: rotate(252deg);"></div>
+            <div class="segment blue" data-value="22" data-name="DOUBLE 11" role="button" style="transform: rotate(270deg);"></div>
+            <div class="segment red " data-value="28" data-name="DOUBLE 14" role="button" style="transform: rotate(288deg);"></div> 
+            <div class="segment blue" data-value="18" data-name="DOUBLE 9 " role="button" style="transform: rotate(306deg);"></div> 
+            <div class="segment red " data-value="24" data-name="DOUBLE 12" role="button" style="transform: rotate(324deg);"></div> 
+            <div class="segment blue" data-value="10" data-name="DOUBLE 5 " role="button" style="transform: rotate(342deg);"></div> 
+            
+            
+            <div class="circle-2">
+              <div class="segment black" data-value="20" data-name="SINGLE 20" role="button" style="transform: rotate(0deg);"></div>
+              <div class="segment white" data-value="1"  data-name="SINGLE 1"  role="button" style="transform: rotate(18deg);"></div>
+              <div class="segment black" data-value="18" data-name="SINGLE 18" role="button" style="transform: rotate(36deg);"></div>
+              <div class="segment white" data-value="4"  data-name="SINGLE 4"  role="button" style="transform: rotate(54deg);"></div>
+              <div class="segment black" data-value="13" data-name="SINGLE 13" role="button" style="transform: rotate(72deg);"></div>
+              <div class="segment white" data-value="6"  data-name="SINGLE 6"  role="button" style="transform: rotate(90deg);"></div>
+              <div class="segment black" data-value="10" data-name="SINGLE 10" role="button" style="transform: rotate(108deg);"></div>
+              <div class="segment white" data-value="15" data-name="SINGLE 15" role="button" style="transform: rotate(126deg);"></div>
+              <div class="segment black" data-value="2"  data-name="SINGLE 2"  role="button" style="transform: rotate(144deg);"></div>
+              <div class="segment white" data-value="17" data-name="SINGLE 17" role="button" style="transform: rotate(162deg);"></div>
+              <div class="segment black" data-value="3"  data-name="SINGLE 3"  role="button" style="transform: rotate(180deg);"></div>
+              <div class="segment white" data-value="19" data-name="SINGLE 19" role="button" style="transform: rotate(198deg);"></div>
+              <div class="segment black" data-value="7"  data-name="SINGLE 7"  role="button" style="transform: rotate(216deg);"></div>
+              <div class="segment white" data-value="16" data-name="SINGLE 16" role="button" style="transform: rotate(234deg);"></div>
+              <div class="segment black" data-value="8"  data-name="SINGLE 8"  role="button" style="transform: rotate(252deg);"></div>
+              <div class="segment white" data-value="11" data-name="SINGLE 11" role="button" style="transform: rotate(270deg);"></div>
+              <div class="segment black" data-value="14" data-name="SINGLE 14" role="button" style="transform: rotate(288deg);"></div> 
+              <div class="segment white" data-value="9"  data-name="SINGLE 9"  role="button" style="transform: rotate(306deg);"></div> 
+              <div class="segment black" data-value="12" data-name="SINGLE 12" role="button" style="transform: rotate(324deg);"></div> 
+              <div class="segment white" data-value="5"  data-name="SINGLE 5"  role="button" style="transform: rotate(342deg);"></div>
+              
+              <div class="circle-3">
+                <div class="segment red " data-value="60" data-name="TRIPLE 20" role="button" style="transform: rotate(0deg);"></div>
+                <div class="segment blue" data-value="3"  data-name="TRIPLE 1"  role="button" style="transform: rotate(18deg);"></div>
+                <div class="segment red " data-value="54" data-name="TRIPLE 18" role="button" style="transform: rotate(36deg);"></div>
+                <div class="segment blue" data-value="12" data-name="TRIPLE 4"  role="button" style="transform: rotate(54deg);"></div>
+                <div class="segment red " data-value="39" data-name="TRIPLE 13" role="button" style="transform: rotate(72deg);"></div>
+                <div class="segment blue" data-value="18" data-name="TRIPLE 6"  role="button" style="transform: rotate(90deg);"></div>
+                <div class="segment red " data-value="30" data-name="TRIPLE 10" role="button" style="transform: rotate(108deg);"></div>
+                <div class="segment blue" data-value="45" data-name="TRIPLE 15" role="button" style="transform: rotate(126deg);"></div>
+                <div class="segment red " data-value="6"  data-name="TRIPLE 2"  role="button" style="transform: rotate(144deg);"></div>
+                <div class="segment blue" data-value="51" data-name="TRIPLE 17" role="button" style="transform: rotate(162deg);"></div>
+                <div class="segment red " data-value="9"  data-name="TRIPLE 3"  role="button" style="transform: rotate(180deg);"></div>
+                <div class="segment blue" data-value="57" data-name="TRIPLE 19" role="button" style="transform: rotate(198deg);"></div>
+                <div class="segment red " data-value="21" data-name="TRIPLE 7"  role="button" style="transform: rotate(216deg);"></div>
+                <div class="segment blue" data-value="48" data-name="TRIPLE 16" role="button" style="transform: rotate(234deg);"></div>
+                <div class="segment red " data-value="24" data-name="TRIPLE 8"  role="button" style="transform: rotate(252deg);"></div>
+                <div class="segment blue" data-value="33" data-name="TRIPLE 11" role="button" style="transform: rotate(270deg);"></div>
+                <div class="segment red " data-value="42" data-name="TRIPLE 14" role="button" style="transform: rotate(288deg);"></div> 
+                <div class="segment blue" data-value="27" data-name="TRIPLE 9"  role="button" style="transform: rotate(306deg);"></div> 
+                <div class="segment red " data-value="36" data-name="TRIPLE 12" role="button" style="transform: rotate(324deg);"></div> 
+                <div class="segment blue" data-value="15" data-name="TRIPLE 5"  role="button" style="transform: rotate(342deg);"></div>
+                
+                <div class="circle-4">
+                  <div class="segment black" data-value="20" data-name="SINGLE 20" role="button" style="transform: rotate(0deg);"></div>
+                  <div class="segment white" data-value="1"  data-name="SINGLE 1"  role="button" style="transform: rotate(18deg);"></div>
+                  <div class="segment black" data-value="18" data-name="SINGLE 18" role="button" style="transform: rotate(36deg);"></div>
+                  <div class="segment white" data-value="4"  data-name="SINGLE 4"  role="button" style="transform: rotate(54deg);"></div>
+                  <div class="segment black" data-value="13" data-name="SINGLE 13" role="button" style="transform: rotate(72deg);"></div>
+                  <div class="segment white" data-value="6"  data-name="SINGLE 6"  role="button" style="transform: rotate(90deg);"></div>
+                  <div class="segment black" data-value="10" data-name="SINGLE 10" role="button" style="transform: rotate(108deg);"></div>
+                  <div class="segment white" data-value="15" data-name="SINGLE 15" role="button" style="transform: rotate(126deg);"></div>
+                  <div class="segment black" data-value="2"  data-name="SINGLE 2"  role="button" style="transform: rotate(144deg);"></div>
+                  <div class="segment white" data-value="17" data-name="SINGLE 17" role="button" style="transform: rotate(162deg);"></div>
+                  <div class="segment black" data-value="3"  data-name="SINGLE 3"  role="button" style="transform: rotate(180deg);"></div>
+                  <div class="segment white" data-value="19" data-name="SINGLE 19" role="button" style="transform: rotate(198deg);"></div>
+                  <div class="segment black" data-value="7"  data-name="SINGLE 7"  role="button" style="transform: rotate(216deg);"></div>
+                  <div class="segment white" data-value="16" data-name="SINGLE 16" role="button" style="transform: rotate(234deg);"></div>
+                  <div class="segment black" data-value="8"  data-name="SINGLE 8"  role="button" style="transform: rotate(252deg);"></div>
+                  <div class="segment white" data-value="11" data-name="SINGLE 11" role="button" style="transform: rotate(270deg);"></div>
+                  <div class="segment black" data-value="14" data-name="SINGLE 14" role="button" style="transform: rotate(288deg);"></div> 
+                  <div class="segment white" data-value="9"  data-name="SINGLE 9"  role="button" style="transform: rotate(306deg);"></div> 
+                  <div class="segment black" data-value="12" data-name="SINGLE 12" role="button" style="transform: rotate(324deg);"></div> 
+                  <div class="segment white" data-value="5"  data-name="SINGLE 5"  role="button" style="transform: rotate(342deg);"></div>
+
+                  <div class="bull s-bull" data-value="50" data-name="S-BULL" role="button"></div>
+                  <div class="bull d-bull" data-value="50" data-name="D-BULL" role="button"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="count-box">
+          <div class="score" id="score">301</div>
+
+          <div class="throws">
+            <div class="throw" id="throw1">1</div>
+            <div class="throw" id="throw2">2</div>
+            <div class="throw" id="throw3">3</div>
+          </div>
+
+          <div class="btn-box">
+            <button class="btn" id="cancel" role="button">キャンセル</button>
+            <button class="btn" id="change" role="button">change</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="zero-one.js"></script>
+
+</html>
