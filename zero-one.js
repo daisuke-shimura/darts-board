@@ -1,13 +1,39 @@
-let score = 301;
+let score;
 let history = [];
 let throws = [];
-let round = 0;
+let round = 1;
+
+// ページ読み込み直後
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("start-modal").classList.remove("hidden");
+
+  document.getElementById("start-game").addEventListener("click", () => {
+    score = Number(document.getElementById("start-score").value);
+
+    document.getElementById("score").textContent = score;
+    document.getElementById("round-number").textContent = round;
+
+    document.getElementById("throw1").textContent = 1;
+    document.getElementById("throw2").textContent = 2;
+    document.getElementById("throw3").textContent = 3;
+
+    document.getElementById("start-modal").classList.add("hidden");
+
+    console.log("ゲーム開始 score =", score);
+  });
+});
+
 
 // 各セグメントのクリック処理
 document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
   seg.addEventListener("click", () => {
     const value = Number(seg.dataset.value);
     const name = String(seg.dataset.name);
+
+    if (score === undefined) {
+      alert("先に開始スコアを選択してください");
+      return;
+    }
 
     if (throws.length >= 3) {
       alert("既に3回投げています");

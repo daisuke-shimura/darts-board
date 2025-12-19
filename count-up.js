@@ -1,7 +1,7 @@
 let score = 0;
 let history = [];
 let throws = [];
-let round = 0;
+let round = 1;
 
 // 各セグメントのクリック処理
 document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
