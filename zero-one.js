@@ -48,6 +48,11 @@ document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
       return;
     }
 
+    if (score < 0) {
+      alert("バーストしています。チェンジを押してください");
+      return
+    }
+
     score -= value;
     throws.push(value);   // ← 履歴に追加
 
@@ -75,7 +80,12 @@ document.getElementById("cancel").addEventListener("click", () => {
     document.getElementById("score").textContent = score;
     document.getElementById(`throw${throws.length + 1}`).textContent = throws.length + 1;
 
-    console.log("取消:", last, " → score:", score, "throws:", throws);
+    // 上がりのセグメントの色を変化
+    if (SEGMENTS.includes(score)) {
+      document
+        .querySelectorAll(`.segment[data-value="${score}"], .bull[data-value="${score}"]`)
+        .forEach(el => el.classList.add("yellow"));
+    }
   }
 });
 
@@ -85,15 +95,32 @@ document.getElementById("change").addEventListener("click", () => {
   //   alert("まだ投げていません");
   //   return;
   // }
+  if (score < 0) {
+    // バースト時の処理
+    score += throws.reduce((a, b) => a + b, 0); // ← 今ラウンドの合計を戻す
+    document.getElementById("score").textContent = score;
+    throws = [0,0,0];
+    history[round] = throws;
+    throws = []; 
+    document.getElementById(`round${round}`).textContent = "BUST";
+    // 上がりのセグメントの色を変化
+    if (SEGMENTS.includes(score)) {
+      document
+        .querySelectorAll(`.segment[data-value="${score}"], .bull[data-value="${score}"]`)
+        .forEach(el => el.classList.add("yellow"));
+    }
+  }
+  else {
+    // 通常時の処理
+    history[round] = throws;
+    throws = []; 
+    document.getElementById(`round${round}`).textContent = history[round].reduce((a, b) => a + b, 0);
+  }
 
-  history[round] = throws;
-  throws = []; 
   document.getElementById("throw1").textContent = 1;
   document.getElementById("throw2").textContent = 2;
   document.getElementById("throw3").textContent = 3;
-  
-  document.getElementById(`round${round}`).textContent = history[round].reduce((a, b) => a + b, 0);
-  
+
   round += 1;
   if (round == MAX_ROUNDS + 1) {
     // alert("ゲーム終了");
