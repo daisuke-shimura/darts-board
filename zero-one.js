@@ -2,6 +2,7 @@ let score;
 let history = [];
 let throws = [];
 let round = 1;
+let MAX_ROUNDS = 8;
 
 // ページ読み込み直後
 document.addEventListener("DOMContentLoaded", () => {
@@ -40,7 +41,7 @@ document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
       return;
     }
 
-    if (round >= 8) {
+    if (round >  MAX_ROUNDS) {
       alert("ゲーム終了");
       return;
     }
@@ -70,22 +71,19 @@ document.getElementById("cancel").addEventListener("click", () => {
 
 // チェンジボタンの処理
 document.getElementById("change").addEventListener("click", () => {
-  if (round >= 8) {
-    alert("ゲーム終了");
-    return;
-  }
   
   history[round] = throws;
-  round += 1;
   throws = []; 
   document.getElementById("throw1").textContent = 1;
   document.getElementById("throw2").textContent = 2;
   document.getElementById("throw3").textContent = 3;
   
-  // document.getElementById(`round${round}`).textContent =
-  //   history
-  //     .map((throws) => throws.reduce((a, b) => a + b, 0))
-  //     .join("\n");
-  document.getElementById(`round${round}`).textContent = history[round - 1].reduce((a, b) => a + b, 0);
+  document.getElementById(`round${round}`).textContent = history[round].reduce((a, b) => a + b, 0);
+  
+  round += 1;
+  if (round == MAX_ROUNDS + 1) {
+    // alert("ゲーム終了");
+    return;
+  }
   document.getElementById("round-number").textContent = round;
 });

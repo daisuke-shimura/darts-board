@@ -164,13 +164,26 @@
     <!-- 開始スコア選択モーダル -->
     <div id="start-modal" class="modal hidden">
       <div class="modal-content">
-        <h2>開始スコアを選択</h2>
+        <h2>ゲームを選択</h2>
 
-        <select id="start-score">
-          <option value="301">301</option>
-          <option value="501">501</option>
-          <option value="701">701</option>
-        </select>
+        <div>
+          <label>ゲーム：</label>
+          <select class="select-box" id="start-score">
+            <option value="301">301</option>
+            <option value="501">501</option>
+            <option value="701">701</option>
+          </select>
+        </div>
+
+        <div>
+          <label>ラウンド数：</label>
+          <select class="select-box" id="max-round">
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="99">99</option>
+          </select>
+        </div>
 
         <button id="start-game">ゲーム開始</button>
       </div>
