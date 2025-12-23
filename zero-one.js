@@ -3,6 +3,8 @@ let history = [];
 let throws = [];
 let round = 1;
 let MAX_ROUNDS = 8;
+const SEGMENTS = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+                  21,22,24,26,27,28,30,32,33,34,36,38,39,40,42,45,48,50,51,54,57,60];
 
 // ページ読み込み直後
 document.addEventListener("DOMContentLoaded", () => {
@@ -41,7 +43,7 @@ document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
       return;
     }
 
-    if (round >  MAX_ROUNDS) {
+    if (round > MAX_ROUNDS || score == 0) {
       alert("ゲーム終了");
       return;
     }
@@ -52,7 +54,15 @@ document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
     document.getElementById("score").textContent = score;
     document.getElementById(`throw${throws.length}`).textContent = name;
 
-    console.log("クリック:", value, " → score:", score, "throws:", throws);
+    // 上がりのセグメントの色を変化
+    document.querySelectorAll(".segment.yellow, .bull.yellow")
+      .forEach(el => el.classList.remove("yellow"));
+
+    if (SEGMENTS.includes(score)) {
+      document
+        .querySelectorAll(`.segment[data-value="${score}"], .bull[data-value="${score}"]`)
+        .forEach(el => el.classList.add("yellow"));
+    }
   });
 });
 
@@ -71,7 +81,11 @@ document.getElementById("cancel").addEventListener("click", () => {
 
 // チェンジボタンの処理
 document.getElementById("change").addEventListener("click", () => {
-  
+  // if (throws.length == 0) {
+  //   alert("まだ投げていません");
+  //   return;
+  // }
+
   history[round] = throws;
   throws = []; 
   document.getElementById("throw1").textContent = 1;

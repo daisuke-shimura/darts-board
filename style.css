@@ -215,6 +215,10 @@
   background: #444444;
 }
 
+.yellow {
+  background-color: yellow !important;
+}
+
 
 /* モーダル入力フォーム */
 .modal {
