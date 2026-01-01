@@ -56,7 +56,7 @@ document.getElementById("change").addEventListener("click", () => {
   
   round += 1;
   if (round == MAX_ROUNDS + 1) {
-    // alert("ゲーム終了");
+    alert("ゲーム終了");
     return;
   }
   document.getElementById("round-number").textContent = round;
