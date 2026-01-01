@@ -93,7 +93,7 @@ document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
   });
 });
 
-// 取消ボタンの処理（Undo）
+// 取消ボタンの処理
 document.getElementById("cancel").addEventListener("click", () => {
   if (throws.length > 0) {
     const last = throws.pop();  // ← 最後の入力を取り出す
@@ -103,6 +103,9 @@ document.getElementById("cancel").addEventListener("click", () => {
     document.getElementById(`throw${throws.length + 1}`).textContent = throws.length + 1;
 
     // 上がりのセグメントの色を変化
+    document.querySelectorAll(".segment.yellow, .bull.yellow")
+      .forEach(el => el.classList.remove("yellow"));
+
     if (SEGMENTS.includes(score)) {
       document
         .querySelectorAll(`.segment[data-value="${score}"], .bull[data-value="${score}"]`)
