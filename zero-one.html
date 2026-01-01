@@ -8,17 +8,12 @@
   <body>
     <div class="display">
       <div class="col-1">
-        <div class="round-number"><span id="round-number">1</span>/8</div>
-        <div class="history">
-          <div>R1：<span id="round1"></span></div>
-          <div>R2：<span id="round2"></span></div>
-          <div>R3：<span id="round3"></span></div>
-          <div>R4：<span id="round4"></span></div>
-          <div>R5：<span id="round5"></span></div>
-          <div>R6：<span id="round6"></span></div>
-          <div>R7：<span id="round7"></span></div>
-          <div>R8：<span id="round8"></span></div>
+        <div class="round-number">
+          <span id="round-number"></span>
+          /
+          <span id="max-round"></span>
         </div>
+        <div class="history" id="history"></div>
       </div>
 
       <div class="col-1-half">
@@ -144,7 +139,7 @@
       </div>
       <div class="col-1">
         <div class="count-box">
-          <div class="score" id="score">301</div>
+          <div class="score" id="score"></div>
 
           <div class="throws">
             <div class="throw" id="throw1">1</div>
@@ -172,16 +167,6 @@
             <option value="301">301</option>
             <option value="501">501</option>
             <option value="701">701</option>
-          </select>
-        </div>
-
-        <div>
-          <label>ラウンド数：</label>
-          <select class="select-box" id="max-round">
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-            <option value="99">99</option>
           </select>
         </div>
 

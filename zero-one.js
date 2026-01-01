@@ -2,7 +2,7 @@ let score;
 let history = [];
 let throws = [];
 let round = 1;
-let MAX_ROUNDS = 8;
+let MAX_ROUNDS;
 const SEGMENTS = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                   21,22,24,26,27,28,30,32,33,34,36,38,39,40,42,45,48,50,51,54,57,60];
 
@@ -13,12 +13,27 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("start-game").addEventListener("click", () => {
     score = Number(document.getElementById("start-score").value);
 
+    if (score == 301) {
+      MAX_ROUNDS = 10;
+    }
+    else if (score == 501) {
+      MAX_ROUNDS = 15;
+    }
+    else if (score == 701) {
+      MAX_ROUNDS = 20;
+    }
+
     document.getElementById("score").textContent = score;
     document.getElementById("round-number").textContent = round;
+    document.getElementById("max-round").textContent = MAX_ROUNDS;
 
-    document.getElementById("throw1").textContent = 1;
-    document.getElementById("throw2").textContent = 2;
-    document.getElementById("throw3").textContent = 3;
+    const historyEl = document.getElementById("history");
+    // R1〜Rn を生成
+    for (let i = 1; i <= MAX_ROUNDS; i++) {
+      const row = document.createElement("div");
+      row.innerHTML = `R${i}：<span id="round${i}"></span>`;
+      historyEl.appendChild(row);
+    }
 
     document.getElementById("start-modal").classList.add("hidden");
 
@@ -59,6 +74,13 @@ document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
     document.getElementById("score").textContent = score;
     document.getElementById(`throw${throws.length}`).textContent = name;
 
+    if (score < 0) {
+      alert("BUST");
+    }
+    else if (score == 0) {
+      alert("CLEAR");
+    }
+
     // 上がりのセグメントの色を変化
     document.querySelectorAll(".segment.yellow, .bull.yellow")
       .forEach(el => el.classList.remove("yellow"));
@@ -91,10 +113,6 @@ document.getElementById("cancel").addEventListener("click", () => {
 
 // チェンジボタンの処理
 document.getElementById("change").addEventListener("click", () => {
-  // if (throws.length == 0) {
-  //   alert("まだ投げていません");
-  //   return;
-  // }
   if (score < 0) {
     // バースト時の処理
     score += throws.reduce((a, b) => a + b, 0); // ← 今ラウンドの合計を戻す
@@ -123,7 +141,7 @@ document.getElementById("change").addEventListener("click", () => {
 
   round += 1;
   if (round == MAX_ROUNDS + 1) {
-    // alert("ゲーム終了");
+    alert("ゲーム終了");
     return;
   }
   document.getElementById("round-number").textContent = round;
