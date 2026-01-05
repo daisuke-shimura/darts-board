@@ -58,7 +58,6 @@
 .btn {
   width: 40%;
   aspect-ratio: 1.6 / 1;
-  /* font-size: 5vw; */
   text-align: center;
   cursor: pointer;
 }
@@ -225,7 +224,6 @@
 }
 
 
-/* モーダル入力フォーム */
 .modal {
   position: fixed;
   top: 0;
