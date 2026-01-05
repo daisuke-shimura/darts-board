@@ -11,12 +11,9 @@
   flex: 1.5;
 }
 
-.col-2 {
-  flex: 2;
-}
 
 .count-box {
-  width: 80%;
+  width: 90%;
   height: 90vh;
   margin: 0px auto;
 }
@@ -24,7 +21,7 @@
 .score {
   font-size: 9vw;
   background-color: aquamarine;
-  border: 10px solid darkturquoise;
+  border: 2px solid darkturquoise;
   border-radius: 10px;
   text-align: center;
 }
@@ -36,17 +33,15 @@
   align-items: center;
   margin-top: 10px;
 }
-
 .throw {
-  width: 120px;
+  width: 60%;
   height: 48px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  border: 1px solid rgba(0,0,0,0.25);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+  border: 1px solid #666;
 }
 
 .btn-box {
@@ -54,12 +49,16 @@
   display: flex;
   justify-content: space-around;
 }
-
 .btn {
   width: 40%;
   aspect-ratio: 1.6 / 1;
   text-align: center;
   cursor: pointer;
+}
+
+
+.round-number {
+  color: #666;
 }
 
 .history {
@@ -68,23 +67,11 @@
   overflow-y: auto;
   padding: 4px;
   margin: 8px;
-  border: 1px solid darkturquoise;
+  border: 2px solid darkturquoise;
   border-radius: 8px;
 }
 .history div {
   margin-bottom: 4px;
-}
-
-.round-number {
-  color: #666;
-}
-
-.round-score {
-  font-weight: bold;
-}
-
-.round.over-100 .round-score {
-  color: red;
 }
 
 
