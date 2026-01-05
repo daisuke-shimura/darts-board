@@ -95,6 +95,11 @@ document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
 
 // 取消ボタンの処理
 document.getElementById("cancel").addEventListener("click", () => {
+  if (round > MAX_ROUNDS) {
+    alert("ゲーム終了");
+    return;
+  }
+  
   if (throws.length > 0) {
     const last = throws.pop();  // ← 最後の入力を取り出す
     score += last;               // ← 計算を戻す
@@ -116,6 +121,11 @@ document.getElementById("cancel").addEventListener("click", () => {
 
 // チェンジボタンの処理
 document.getElementById("change").addEventListener("click", () => {
+  if (round > MAX_ROUNDS || score == 0) {
+    alert("ゲーム終了");
+    return;
+  }
+
   if (score < 0) {
     // バースト時の処理
     score += throws.reduce((a, b) => a + b, 0); // ← 今ラウンドの合計を戻す
@@ -143,7 +153,7 @@ document.getElementById("change").addEventListener("click", () => {
   document.getElementById("throw3").textContent = 3;
 
   round += 1;
-  if (round == MAX_ROUNDS + 1) {
+  if (round > MAX_ROUNDS) {
     alert("ゲーム終了");
     return;
   }
