@@ -8,8 +8,6 @@ const SEGMENTS = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
 
 // ページ読み込み直後
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("start-modal").classList.remove("hidden");
-
   document.getElementById("start-game").addEventListener("click", () => {
     score = Number(document.getElementById("start-score").value);
 
@@ -28,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("max-round").textContent = MAX_ROUNDS;
 
     const historyEl = document.getElementById("history");
-    // R1〜Rn を生成
     for (let i = 1; i <= MAX_ROUNDS; i++) {
       const row = document.createElement("div");
       row.innerHTML = `R${i}：<span id="round${i}"></span>`;
@@ -36,13 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     document.getElementById("start-modal").classList.add("hidden");
-
-    console.log("ゲーム開始 score =", score);
   });
 });
 
 
-// 各セグメントのクリック処理
+// セグメントのクリック処理
 document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
   seg.addEventListener("click", () => {
     const value = Number(seg.dataset.value);
@@ -69,7 +64,7 @@ document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
     }
 
     score -= value;
-    throws.push(value);   // ← 履歴に追加
+    throws.push(value);
 
     document.getElementById("score").textContent = score;
     document.getElementById(`throw${throws.length}`).textContent = name;
@@ -93,7 +88,7 @@ document.querySelectorAll(".segment, .bull, .number").forEach(seg => {
   });
 });
 
-// 取消ボタンの処理
+// キャンセルボタンの処理
 document.getElementById("cancel").addEventListener("click", () => {
   if (round > MAX_ROUNDS) {
     alert("ゲーム終了");
@@ -101,8 +96,8 @@ document.getElementById("cancel").addEventListener("click", () => {
   }
   
   if (throws.length > 0) {
-    const last = throws.pop();  // ← 最後の入力を取り出す
-    score += last;               // ← 計算を戻す
+    const last = throws.pop();
+    score += last;
 
     document.getElementById("score").textContent = score;
     document.getElementById(`throw${throws.length + 1}`).textContent = throws.length + 1;
@@ -128,7 +123,7 @@ document.getElementById("change").addEventListener("click", () => {
 
   if (score < 0) {
     // バースト時の処理
-    score += throws.reduce((a, b) => a + b, 0); // ← 今ラウンドの合計を戻す
+    score += throws.reduce((a, b) => a + b, 0);
     document.getElementById("score").textContent = score;
     throws = [0,0,0];
     history[round] = throws;
